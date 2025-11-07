@@ -11,7 +11,7 @@ import ExpressError from "@/utils/ExpressError.util";
 ----------------------------------------------------------- */
 async function decodingUser() {
   const cookieStore = await cookies();
-  const tokenrec = cookieStore.get("token");
+  const tokenrec = cookieStore.get("baatchitToken");
 
   if (!tokenrec || !tokenrec.value) {
     throw new ExpressError(401, "Unauthorized: Token missing");

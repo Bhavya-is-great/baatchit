@@ -21,7 +21,7 @@ import { cookies } from "next/headers";
 
 async function decodingUser() {
     const cookieStore = await cookies();
-    const tokenrec = cookieStore.get("token");
+    const tokenrec = cookieStore.get("baatchitToken");
 
     if (!tokenrec || !tokenrec.value) {
         return null;
@@ -75,7 +75,7 @@ export async function handleRegister(req) {
                 data: { user: sanitizeUser(existingUser) },
             }
             const response = NextResponse.json(resData, { status: 200 })
-            response.cookies.set('token', token);
+            response.cookies.set('baatchitToken', token);
             return response;
         } else {
             throw new ExpressError(400, "User already exists");
@@ -111,7 +111,7 @@ export async function handleRegister(req) {
         },
     }
     const response = NextResponse.json(resData, { status: 201 });
-    response.cookies.set("token", token);
+    response.cookies.set("baatchitToken", token);
     return response;
 }
 
@@ -199,7 +199,7 @@ export async function handleLogin(req) {
         },
     };
     const response = NextResponse.json(resData, { status: 200 });
-    response.cookies.set('token', token);
+    response.cookies.set('baatchitToken', token);
     return response;
 }
 
@@ -211,7 +211,7 @@ export async function handleLogout() {
         message: "Logged out successfully",
     };
     const response = NextResponse.json(resData, { status: 200 })
-    response.cookies.set("token", '');
+    response.cookies.set("tokebaatchitToken", '');
     return response;
 }
 
