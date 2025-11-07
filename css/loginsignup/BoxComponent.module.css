@@ -1,0 +1,124 @@
+/* BoxComponent.module.css
+   Improved close/open transition for login <-> signup swap
+   Shine now slides away after showing
+*/
+
+:root {
+  --anim-fast: 360ms;
+  --anim-slow: 720ms;
+  --ease-in-out: cubic-bezier(.2,.9,.3,1);
+  --card-radius: 18px;
+}
+
+/* Base card */
+.box {
+  width: 720px;
+  max-width: calc(100% - 40px);
+  margin: 36px auto;
+  border-radius: var(--card-radius);
+  background: linear-gradient(180deg, var(--color-bg-surface), var(--color-inset));
+  border: 1px solid var(--color-border-strong);
+  box-shadow: 0 18px 60px hsla(220 20% 6% / 0.55);
+  overflow: hidden;
+  position: relative;
+  transition:
+    transform var(--anim-slow) var(--ease-in-out),
+    box-shadow var(--anim-slow) var(--ease-in-out),
+    filter var(--anim-slow) var(--ease-in-out),
+    border-radius var(--anim-fast) var(--ease-in-out);
+  transform-origin: center;
+  padding: 22px;
+  will-change: transform, box-shadow, filter;
+  isolation: isolate;
+}
+
+/* SHINE EFFECT — appears briefly then slides away */
+.box::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -30%;
+  width: 60%;
+  height: 180%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0) 60%);
+  transform: rotate(-18deg) translateX(-30%);
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Animate shine only when opening */
+.box:not(.close)::after {
+  animation: shine-slide 1.1s cubic-bezier(.3,.8,.3,1) forwards;
+}
+
+@keyframes shine-slide {
+  0% {
+    transform: rotate(-18deg) translateX(-40%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-18deg) translateX(140%);
+    opacity: 0;
+  }
+}
+
+/* CHILDREN crossfade & slide */
+.box > * {
+  transition: opacity var(--anim-fast) var(--ease-in-out),
+              transform var(--anim-fast) var(--ease-in-out);
+  will-change: opacity, transform;
+}
+
+/* Closed: compress + hide content */
+.close {
+  transform: perspective(1000px) rotateX(8deg) scale(0.96);
+  box-shadow: 0 10px 30px hsla(220 20% 6% / 0.38);
+  filter: saturate(0.95) brightness(0.98) blur(0.2px);
+  border-radius: calc(var(--card-radius) - 4px);
+  clip-path: inset(6% 6% 6% 6% round calc(var(--card-radius) - 4px));
+}
+
+.close > * {
+  opacity: 0;
+  transform: translateY(8px) scale(0.996);
+  pointer-events: none;
+}
+
+/* Open: show content */
+.box:not(.close) > * {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Subtle hover lift */
+.box:hover {
+  transform: translateY(-6px) scale(1.002);
+  box-shadow: 0 22px 72px hsla(220 20% 6% / 0.58);
+  transition-duration: 300ms;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .box,
+  .box > *,
+  .box::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .box { width: 96%; padding: 18px; border-radius: 14px; }
+}
+@media (max-width: 520px) {
+  .box { padding: 14px; margin: 18px auto; }
+  .box::after { display: none; }
+}

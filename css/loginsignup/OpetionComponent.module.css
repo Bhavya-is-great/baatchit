@@ -1,0 +1,16 @@
+.optionButton {
+    border: none;
+    outline: none;
+    background: var(--gradient-secondary);
+    color: var(--text-primary);
+    font-size: var(--font-xm);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--shadow-secondary);
+}
+
+.optionButton:hover {
+    scale: 1.01;
+}

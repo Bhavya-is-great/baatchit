@@ -1,0 +1,30 @@
+.ChatBox {
+  width: 90vw; /* default for small devices */
+  max-width: 1000px; /* limit for large screens */
+  height: calc(100vh - 200px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  border-radius: 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
+  scroll-behavior: smooth;
+}
+
+/* For tablets and small laptops */
+@media (min-width: 768px) {
+  .ChatBox {
+    width: 70vw;
+  }
+}
+
+/* For large desktops */
+@media (min-width: 1200px) {
+  .ChatBox {
+    width: 80vw;
+  }
+}

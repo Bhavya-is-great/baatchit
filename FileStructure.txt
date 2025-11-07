@@ -1,0 +1,105 @@
+baatchit/
+├─ app/
+│  ├─ (backend)/
+│  │  ├─ api/
+│  │  │  └─ auth/
+│  │  │     ├─ forgot-password/
+│  │  │     │  └─ route.js
+│  │  │     ├─ login/
+│  │  │     │  └─ route.js
+│  │  │     ├─ logout/
+│  │  │     │  └─ route.js
+│  │  │     ├─ register/
+│  │  │     │  └─ route.js
+│  │  │     ├─ reset-password/
+│  │  │     │  └─ [token]/
+│  │  │     │     └─ route.js
+│  │  │     ├─ send-verification/
+│  │  │     │  └─ route.js
+│  │  │     ├─ status/
+│  │  │     │  └─ route.js
+│  │  │     └─ verify-email/
+│  │  │        └─ route.js
+│  │  └─ lib/
+│  │     └─ cors.js
+│  ├─ loginsignup/
+│  │  └─ page.jsx
+│  ├─ favicon.ico
+│  ├─ globals.css
+│  ├─ layout.jsx
+│  ├─ page.jsx
+│  └─ page.module.css
+├─ assets/
+│  └─ logo.png
+├─ components/
+│  ├─ home/
+│  │  ├─ Botmessage.jsx
+│  │  ├─ Sidebar.jsx
+│  │  ├─ Textarea.jsx
+│  │  └─ UserMessage.jsx
+│  └─ loginsignup/
+│     ├─ BoxComponent.jsx
+│     ├─ LoginComponent.jsx
+│     ├─ OptionComponent.jsx
+│     └─ SignupComponent.jsx
+├─ config/
+│  ├─ db.config.js
+│  └─ mailProvider.config.js
+├─ controllers/
+│  └─ user.controllers.js
+├─ css/
+│  ├─ globals/
+│  │  ├─ Navbar.module.css
+│  │  └─ OtpPopup.module.css
+│  ├─ home/
+│  │  ├─ BotMessage.module.css
+│  │  ├─ Sidebar.module.css
+│  │  ├─ Textarea.module.css
+│  │  └─ UserMessage.module.css
+│  ├─ loginsignup/
+│  │  ├─ BoxComponent.module.css
+│  │  ├─ LoginComponent.module.css
+│  │  ├─ Main.module.css
+│  │  ├─ OpetionComponent.module.css
+│  │  └─ SignupComponent.module.css
+│  └─ ui/
+│     ├─ GlowButton.module.css
+│     ├─ Input.module.css
+│     ├─ NormalButton.module.css
+│     └─ Toast.module.css
+├─ helpers/
+│  ├─ OtpPopup.jsx
+│  ├─ PageTransition.jsx
+│  └─ UserContext.jsx
+├─ models/
+│  ├─ token.model.js
+│  └─ user.model.js
+├─ public/
+│  ├─ file.svg
+│  ├─ globe.svg
+│  ├─ next.svg
+│  ├─ vercel.svg
+│  └─ window.svg
+├─ ui/
+│  ├─ GlowBUtton.jsx
+│  ├─ Input.jsx
+│  ├─ LinkComponent.jsx
+│  ├─ NormalButton.jsx
+│  └─ Toast.jsx
+├─ utils/
+│  ├─ ExpressError.util.js
+│  ├─ generateJWT.utils.js
+│  ├─ mails.util.js
+│  ├─ mailTemplates.util.js
+│  ├─ sanitize.util.js
+│  ├─ sleep.js
+│  └─ wrapAsync.util.js
+├─ .env
+├─ .gitignore
+├─ eslint.config.mjs
+├─ FileStructure.txt
+├─ jsconfig.json
+├─ next.config.mjs
+├─ package-lock.json
+├─ package.json
+└─ README.md

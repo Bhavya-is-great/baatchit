@@ -1,0 +1,289 @@
+/* Sidebar.module.css - responsive, theme-aware, accessible */
+
+/* Basic header/nav */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-md);
+  background: var(--color-bg-surface);
+  padding: 1rem 1.25rem;
+  z-index: 999;
+  box-shadow: var(--shadow-1);
+}
+
+/* Hamburger (left) */
+.hamburger {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+}
+.hamburger:focus {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.hamburgertopen {
+    width: fit-content;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.Openline {
+    background: var(--color-text-muted);
+    width: 32px;
+    height: 2px;
+    margin: 3px;
+}
+
+.Openline:nth-child(2) {
+    width: 24px;
+}
+
+/* three lines for hamburger */
+.line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 3px 0;
+  background: var(--color-text-muted);
+  transition: transform 200ms var(--theme-transition), opacity 180ms var(--theme-transition);
+}
+
+/* animate hamburger -> X on small screens when active */
+.hamburgerActive .line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.hamburgerActive .line:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+.hamburgerActive .line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Logo */
+.logoImg {
+  width: 180px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Theme toggle */
+.mode {
+  font-size: 1.15rem;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.mode:focus { box-shadow: var(--focus-ring); outline: none; }
+
+/* ---------- Sidebar panel ---------- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -150%;
+  z-index: 9999;
+  width: 260px;            /* desktop width */
+  max-width: 90vw;
+  height: 100vh;
+  background: var(--color-bg-surface);
+  box-shadow: 2px 0 20px var(--shadow-1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: left 1s ease;
+}
+
+.sidebar.open {
+    top: 0;
+    left: 0;
+}
+
+/* inner wrapper to help layout */
+.sidebarInner {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+/* Top bar inside sidebar (contains X close on mobile) */
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 0.25rem;
+}
+
+/* Close icon made by two lines (X) */
+.closeDiv {
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.closeDiv:focus { outline: none; box-shadow: var(--focus-ring); }
+
+.close {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  display: inline-block;
+}
+.closeLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 2px;
+  width: 22px;
+  background: var(--color-text-muted);
+  top: 50%;
+  transform-origin: center;
+  transition: transform 180ms var(--theme-transition), opacity 120ms;
+}
+/* Two lines rotated to make X */
+.closeLine:first-child { transform: translateY(-50%) rotate(45deg); }
+.closeLine:last-child  { transform: translateY(-50%) rotate(-45deg); }
+
+/* divider */
+.divider {
+  height: 1px;
+  width: 100%;
+  background: var(--color-border);
+  margin: 8px 0 12px 0;
+  border-radius: 2px;
+}
+
+/* New chat area */
+.newChat {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.newChatButton {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-strong);
+  background: linear-gradient(180deg, var(--color-bg-elev), var(--color-bg-surface));
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  text-align: left;
+}
+.newChatButton:hover { box-shadow: var(--shadow-2); }
+
+/* Chats container - this is the flexible part */
+.chats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  padding-right: 6px;
+  flex: 1 1 auto; /* grow and take remaining space */
+}
+
+/* example chat item */
+.chatItem {
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--color-muted-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+.chatItem:hover { transform: translateY(-2px); box-shadow: var(--shadow-1); }
+
+/* User area pinned to bottom */
+.userArea {
+  position: relative; /* within sidebarInner */
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.userDetails {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--color-text);
+}
+.userFunctions {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border-strong);
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.userFunctions:hover { box-shadow: var(--shadow-1); }
+
+/* overlay for mobile when sidebar open */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  z-index: 65;
+  pointer-events: none;
+  transition: background 220ms var(--theme-transition);
+}
+.overlayVisible {
+  background: rgba(0,0,0,0.28);
+  pointer-events: auto;
+}
+
+/* ========== Responsive adjustments ========== */
+
+/* Make sidebar behave like an off-canvas drawer on smaller screens */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 320px;
+  }
+
+  /* show close X in top (makes it more apparent on small screens) */
+  .close { display: inline-block; }
+}
+
+/* On very small screens show a slightly narrower drawer */
+@media (max-width: 420px) {
+  .sidebar { width: 280px; }
+  .logoImg { width: 140px; }
+  .mode { font-size: 1rem; padding: 0.35rem 0.5rem; }
+}
+
+/* On large screens keep the sidebar visible and don't show overlay */
+@media (min-width: 1025px) {
+  .overlay { display: none; }
+
+}

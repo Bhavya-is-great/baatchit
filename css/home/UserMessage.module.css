@@ -1,0 +1,24 @@
+.messageRow {
+  width: 100%;
+  display: flex;
+  padding: 0.6rem 0.75rem;
+  border-top: 1px solid var(--color-border);
+  background: transparent;
+  justify-content: flex-end; /* user messages go right */
+}
+
+.userMessage {
+  max-width: 90%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-light);
+  color: var(--color-text);
+  box-shadow: var(--shadow-1);
+  font-size: var(--fs-base);
+  line-height: 1.4;
+  word-break: break-word;
+  margin-bottom: 5px;
+
+  /* 👇 this line ensures wrapping + keeps user-entered newlines */
+  white-space: pre-wrap;
+}

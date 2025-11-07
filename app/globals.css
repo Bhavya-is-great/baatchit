@@ -1,0 +1,225 @@
+/* ---------- Baatchit: root tokens (HSL) ---------- */
+/* Put the data-theme attribute on <html> or :root, e.g. <html data-theme="light"> */
+
+:root {
+  /* Transition for theme changes */
+  --theme-transition: 180ms ease-in-out;
+
+  /* Brand primary (AI-ish blue) */
+  --color-primary-h: 222;
+  --color-primary-s: 75%;
+  --color-primary: hsl(var(--color-primary-h) var(--color-primary-s) 45%);
+  --color-primary-med: hsl(var(--color-primary-h) var(--color-primary-s) 55%);
+  --color-primary-light: hsl(var(--color-primary-h) 80% 65%);
+
+  /* Accent (secondary) - cyan for action highlights */
+  --color-accent: hsl(190 85% 50%);
+  --color-accent-soft: hsl(190 85% 62%);
+
+  /* Semantic state colors */
+  --color-success: hsl(145 60% 40%);
+  --color-warning: hsl(38 95% 50%);
+  --color-danger: hsl(355 75% 55%);
+
+  /* Typography sizing scale (optional) */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.5rem;
+
+  /* Radii & spacing */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --gap-xs: 6px;
+  --gap-sm: 12px;
+  --gap-md: 20px;
+
+  /* Shadows (use with caution in dark mode) */
+  --shadow-1: 0 6px 18px hsla(220 30% 10% / 0.06);
+  --shadow-2: 0 10px 30px hsla(220 30% 10% / 0.08);
+
+  /* Border stroke */
+  --border-1: 1px solid;
+}
+
+/* ---------------- Light theme (default tokens) ---------------- */
+:root[data-theme="light"],
+:root {
+  /* fallback to light if no data-theme */
+  /* Backgrounds */
+  --color-bg: hsl(210 20% 98%);
+  /* page background - very light off-white */
+  --color-bg-surface: hsl(210 18% 96%);
+  /* large surfaces like cards */
+  --color-bg-elev: hsl(210 14% 92%);
+  /* elevated surfaces / panels */
+
+  /* Text */
+  --color-text: hsl(220 18% 8%);
+  /* primary text - near black for contrast */
+  --color-text-muted: hsl(220 10% 46%);
+  /* secondary text / captions */
+
+  /* Dividers & borders */
+  --color-border: hsl(220 14% 87%);
+  --color-border-strong: hsl(220 12% 78%);
+
+  /* Shadows - softer on light */
+  --shadow-1: 0 6px 18px hsla(222 20% 20% / 0.06);
+  --shadow-2: 0 10px 30px hsla(222 20% 18% / 0.08);
+
+  /* Muted / subtle surfaces */
+  --color-muted-surface: hsl(210 12% 98%);
+  --color-inset: hsl(210 16% 95%);
+
+  /* Interactive outlines */
+  --focus-ring: hsl(var(--color-primary-h) 90% 60% / 0.28);
+  --focus-ring-strong: hsl(var(--color-primary-h) 90% 50% / 0.40);
+}
+
+/* ---------------- Dark theme tokens ---------------- */
+:root[data-theme="dark"] {
+  /* Backgrounds */
+  --color-bg: hsl(220 20% 7%);
+  /* page background - deep dark */
+  --color-bg-surface: hsl(220 18% 10%);
+  /* card surfaces */
+  --color-bg-elev: hsl(220 18% 12%);
+  /* elevated panels */
+
+  /* Text */
+  --color-text: hsl(210 22% 96%);
+  /* primary text - near white */
+  --color-text-muted: hsl(210 10% 74%);
+  /* secondary text */
+
+  /* Dividers & borders */
+  --color-border: hsl(220 14% 16%);
+  --color-border-strong: hsl(220 14% 22%);
+
+  /* Shadows - subtle glow for light elements */
+  --shadow-1: 0 6px 18px hsla(220 50% 10% / 0.6);
+  --shadow-2: 0 10px 30px hsla(220 50% 10% / 0.7);
+
+  /* Muted / subtle surfaces */
+  --color-muted-surface: hsl(220 18% 9%);
+  --color-inset: hsl(220 18% 8%);
+
+  /* Interactive outlines */
+  --focus-ring: hsl(var(--color-primary-h) 95% 60% / 0.18);
+  --focus-ring-strong: hsl(var(--color-primary-h) 95% 70% / 0.25);
+
+  /* Make brand color brighter in dark mode for visibility */
+  --color-primary: hsl(var(--color-primary-h) var(--color-primary-s) 60%);
+  --color-primary-med: hsl(var(--color-primary-h) var(--color-primary-s) 52%);
+  --color-primary-light: hsl(var(--color-primary-h) 85% 72%);
+}
+
+* {
+  transition: all 0.3s ease;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+
+
+/* ---------------- Modern thin global scrollbar ---------------- */
+/* Applies to all scrollable elements (use with care; you said you wanted * ) */
+* {
+  /* keep this selector if you really want it everywhere; otherwise prefer html, body, .scrollable */
+}
+
+/* WebKit browsers (Chrome, Edge, Safari) */
+*::-webkit-scrollbar {
+  width: 10px;
+  /* vertical scrollbar width */
+  height: 10px;
+  /* horizontal scrollbar height */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 999px;
+  margin: 2px 0;
+  /* not widely supported but harmless */
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-primary-med), var(--color-primary));
+  border-radius: 999px;
+  min-height: 28px;
+  /* usable tap/drag size */
+  border: 2px solid transparent;
+  /* creates separation from track */
+  background-clip: padding-box;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  /* tiny depth */
+  transition: background var(--theme-transition), transform 120ms ease;
+}
+
+/* Hover + active states (smooth feedback) */
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-primary-light), var(--color-primary-med));
+  transform: scaleX(1.02);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  transform: scaleX(1.06);
+}
+
+/* A subtle thin corner when both scrollbars appear */
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ---------------- Firefox ---------------- */
+/* Firefox uses two properties: scrollbar-width and scrollbar-color.
+   scrollbar-width: 'thin' makes it thin; scrollbar-color sets thumb/track colors. */
+* {
+  scrollbar-width: thin;
+  /* "auto" | "thin" | "none" */
+  scrollbar-color: var(--color-primary-med) transparent;
+}
+
+/* To give Firefox a nicer track/appearance for high-contrast themes,
+   prefer setting colors for elements that actually scroll if you want more control:
+   e.g. .scrollable { scrollbar-color: var(--color-primary-med) var(--color-inset); } */
+
+/* ---------------- Accessibility niceties ---------------- */
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *::-webkit-scrollbar-thumb,
+  *::-webkit-scrollbar-thumb:hover,
+  *::-webkit-scrollbar-thumb:active {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Optional: hide on touch devices (mobile) where native scrollbars are better */
+@media (pointer: coarse) {
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    scrollbar-width: none;
+  }
+}

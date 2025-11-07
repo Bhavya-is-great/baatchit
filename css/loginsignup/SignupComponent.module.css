@@ -1,0 +1,81 @@
+/* SignupComponent.module.css - reuse styles similar to login but slightly taller spacing */
+
+.LoginComp {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.headContent {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* signup CTA uses outline style to mix hierarchy */
+.loginButton {
+  margin-top: 6px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--color-primary);
+  background: linear-gradient(180deg, transparent, transparent);
+  color: var(--color-text);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 180ms var(--theme-transition), background 180ms var(--theme-transition), box-shadow 180ms var(--theme-transition);
+}
+.loginButton:hover { transform: translateY(-3px); background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(255,255,255,0.02)); box-shadow: 0 12px 30px hsla(var(--color-primary-h) 80% 40% / 0.06); }
+
+.hr {
+  height: 1px;
+  background: var(--color-border);
+  border-radius: 2px;
+  margin: 12px 0;
+}
+
+.otherButtons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: linear-gradient(180deg, transparent, transparent);
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--color-text);
+  transition: transform 140ms var(--theme-transition), border-color 140ms var(--theme-transition);
+}
+.btn:hover { transform: translateY(-2px); border-color: var(--color-primary); }
+
+/* change/login toggle area */
+.change {
+  margin-top: 6px;
+  font-size: 0.94rem;
+  color: var(--color-text-muted);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsiveness */
+@media (max-width: 520px) {
+  .LoginComp { padding: 12px; max-width: 100%; }
+  .headContent { font-size: 1.25rem; }
+}

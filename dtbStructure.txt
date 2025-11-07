@@ -1,0 +1,27 @@
+4 tables
+
+1. Conversation 
+_id 
+user_id -> usertable -> _id 
+title 
+
+2. Messages
+message 
+role 
+converstion_id -> conversationstable -> _id
+indexNum -> list.length 
+
+// messages = [] -> length = 0 1st message stores at 0
+// message = [mesage 1,] -> length = 1 2nd message index is 1\
+
+max -> 50 each
+
+3. Users 
+name 
+email 
+password 
+phone 
+_id
+
+4. Token 
+reset password and otp

@@ -1,0 +1,18 @@
+.glowBtn {
+    color: var(--text-primary);
+    padding: 10px 20px;
+    margin: 8px;
+    border: 1px solid var(--gradient-primary);
+    border-radius: 5px;
+    cursor: pointer;
+    background: var(--accent-primary);
+    transition: all 0.3s ease;
+    background: var(--gradient-primary);
+    font-size: var(--font-xs);
+}
+
+.glowBtn:hover {
+    box-shadow: 0 8px 25px var(--shadow-gradient);
+    background: var(--gradient-primary);
+    transform: scale(1.05);
+}

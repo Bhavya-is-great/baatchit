@@ -1,0 +1,67 @@
+/* Input.module.css - clean input with floating label style */
+
+.inputBox {
+  --pad: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 8px 0;
+  width: 100%;
+}
+
+/* label as subtle floating label */
+.label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transform-origin: left center;
+  transition: transform 180ms var(--theme-transition), color 180ms var(--theme-transition), opacity 180ms var(--theme-transition);
+  user-select: none;
+}
+
+/* input baseline */
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  padding-left: 14px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--color-bg-surface), var(--color-inset));
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 0.98rem;
+  outline: none;
+  box-shadow: var(--shadow-1);
+  transition: box-shadow 180ms var(--theme-transition), transform 180ms var(--theme-transition), border-color 180ms var(--theme-transition), background 180ms var(--theme-transition);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* when focused */
+.input:focus {
+  box-shadow: 0 8px 28px hsla(var(--color-primary-h) 80% 40% / 0.14), var(--shadow-1);
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+/* subtle placeholder style */
+.input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+/* small validation error text */
+.error {
+  color: var(--color-danger);
+  font-size: 0.78rem;
+  margin-top: 4px;
+  min-height: 18px;
+  transition: opacity 140ms var(--theme-transition);
+}
+
+/* compact / responsive */
+@media (max-width: 520px) {
+  .input { padding: 10px 12px; font-size: 0.95rem; }
+  .label { font-size: 0.78rem; }
+}

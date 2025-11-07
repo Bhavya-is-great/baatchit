@@ -1,0 +1,15 @@
+.normalBtn {
+    background: var(--bg-primary);
+    border: 1.5px solid var(--accent-primary);
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: var(--font-xs);
+    color: var(--text-primary);
+}
+
+.normalBtn:hover {
+    background: var(--accent-primary);
+}
