@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "BaatChit",
   description: "Yee Baatchit ai hai joo ki ai fiesta ko aukad dikahne aaya h",
+  other: {
+    "google-site-verification": "eSUH1fKpE_6vhXKn4WmTTQ8qP-7vVrIvfkUnbgkgyZE",
+  },
+
 };
 
 export default function RootLayout({ children }) {
